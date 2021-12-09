@@ -98,7 +98,7 @@ export const gohmSb = new CustomLPBond({
     reserveContractAbi: LpReserveContract,
     networkAddrs: {
         [Networks.AVAX]: {
-            bondAddress: "0x5030DCf903563682e312839622393BBbBE8Ec36e",
+            bondAddress: "0x4a916aBCb24236Cae854c51914b8374374FA7AC0",
             reserveAddress: "0xc111b8fe7f8868107ab677c7fc762eb51115e2b9",
         },
     },
