@@ -10,7 +10,7 @@ import { Bond } from "../../helpers/bond/bond";
 import { Networks } from "../../constants/blockchain";
 import { getBondCalculator } from "../../helpers/bond-calculator";
 import { RootState } from "../store";
-import { avaxSb, wavax } from "../../helpers/bond";
+import { avaxSb, wavax, gohmSb } from "../../helpers/bond";
 import { error, warning, success, info } from "../slices/messages-slice";
 import { messages } from "../../constants/messages";
 import { getGasPrice } from "../../helpers/get-gas-price";
@@ -123,6 +123,9 @@ export const calcBondDetails = createAsyncThunk("bonding/calcBondDetails", async
         if (bond.name === avaxSb.name) {
             const avaxPrice = getTokenPrice("AVAX");
             bondPrice = bondPrice * avaxPrice;
+        } else if (bond.name === gohmSb.name) {
+            const gohmPrice = getTokenPrice("gOHM");
+            bondPrice = bondPrice * gohmPrice;
         }
 
         bondDiscount = (marketPrice * Math.pow(10, 18) - bondPrice) / bondPrice;
@@ -167,6 +170,9 @@ export const calcBondDetails = createAsyncThunk("bonding/calcBondDetails", async
         if (bond.name === avaxSb.name) {
             const avaxPrice = getTokenPrice("AVAX");
             purchased = purchased * avaxPrice;
+        } else if (bond.name === gohmSb.name) {
+            const gohmPrice = getTokenPrice("gOHM");
+            purchased = purchased * gohmPrice;
         }
     } else if (bond.name === wavax.name) {
         purchased = purchased / Math.pow(10, 18);

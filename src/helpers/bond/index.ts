@@ -7,6 +7,7 @@ import AvaxIcon from "../../assets/tokens/AVAX.svg";
 import mimSbIcon from "../../assets/tokens/SB-MIM.png";
 import AvaxSbIcon from "../../assets/tokens/SB-AVAX.png";
 import MimSdogIcon from "../../assets/tokens/SDOG-MIM.svg";
+import gOHMSbIcon from "../../assets/tokens/SB-gOHM.png";
 
 import { StableBondContract, LpBondContract, WavaxBondContract, StableReserveContract, LpReserveContract } from "../../abi";
 
@@ -88,4 +89,20 @@ export const avaxSb = new CustomLPBond({
     lpUrl: "https://traderjoexyz.com/#/pool/AVAX/0x7d1232b90d3f809a54eeaeebc639c62df8a8942f",
 });
 
-export default [mim, wavax, mimSb, avaxSb, mimSdog];
+export const gohmSb = new CustomLPBond({
+    name: "gohm_sb_lp",
+    displayName: "SB-gOHM LP",
+    bondToken: "MIM",
+    bondIconSvg: gOHMSbIcon,
+    bondContractABI: LpBondContract,
+    reserveContractAbi: LpReserveContract,
+    networkAddrs: {
+        [Networks.AVAX]: {
+            bondAddress: "0x5030DCf903563682e312839622393BBbBE8Ec36e",
+            reserveAddress: "0xc111b8fe7f8868107ab677c7fc762eb51115e2b9",
+        },
+    },
+    lpUrl: "https://traderjoexyz.com/#/pool/0x321e7092a180bb43555132ec53aaa65a5bf84251/0x7d1232b90d3f809a54eeaeebc639c62df8a8942f",
+});
+
+export default [mim, wavax, mimSb, avaxSb, mimSdog, gohmSb];
